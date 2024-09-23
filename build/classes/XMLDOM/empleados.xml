@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empleados>
+    <empleado id="111">
+        <nombre>Marc</nombre>
+        <apellidos>Zuckerbeg</apellidos>
+        <ciudad>Florida</ciudad>
+    </empleado>
+    <empleado id="222">
+        <nombre>Jeff</nombre>
+        <apellidos>Bezos</apellidos>
+        <ciudad>New York</ciudad>
+    </empleado>
+    <empleado id="333">
+        <nombre>David</nombre>
+        <apellidos>Hasselhoff</apellidos>
+        <ciudad>Alcorcon</ciudad>
+    </empleado>
+</empleados>

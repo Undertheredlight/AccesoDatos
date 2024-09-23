@@ -1,4 +1,4 @@
-//REVISAR EL CÓDIGO, NO FUNCIONA BIEN. DEBE DE APARECER EN  CARTA.TXT EL LOS VALORES QUE SE HAN SUSTITUIDOS POR LOS $, ES DECIR, EL NOMBRE, APELLIDO
+
 package Lectura_Escritura;
 
 import java.io.BufferedReader;
@@ -12,13 +12,12 @@ import java.util.Scanner;
 
 /**
  *
- * @author FP
+    * @Liz FP
  */
-public class Principal {
-
+public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Scanner teclado = new Scanner(System.in);
-        File f = new File("plantilla.txt");//Lo que hago es abrir el fichero con el que voy a trabajar. Previamente existe el txt en la carpeta donde trabajo
+        File f = new File("plantilla.txt");
 
         String archivoEntrada = "plantilla.txt";
         String archivoSalida = "carta.txt";
@@ -27,42 +26,51 @@ public class Principal {
             System.out.println("El fichero existe");
         } else {
             System.out.println("El fichero no existe");
+            return; // Si no existe, salir del programa
         }
         System.out.println("__________________________");
+        
+        
+        // Solicitar datos una sola vez al inicio
+        System.out.println("Introduce tu nombre: ");
+        String nombre = teclado.nextLine();
 
+        System.out.println("Introduce tu apellido: ");
+        String apellido = teclado.nextLine();
+
+        System.out.println("Introduce nombre de tu jefe: ");
+        String jefe = teclado.nextLine();
+
+        System.out.println("Introduce el departamento: ");
+        String dpto = teclado.nextLine();
+        
+         // Leer el archivo de entrada y escribir en el archivo de salida
         BufferedReader texto = new BufferedReader(new FileReader(archivoEntrada));
         BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoSalida));
 
         String linea;
         while ((linea = texto.readLine()) != null) {
+            // Reemplazar los placeholders en la línea actual
             if (linea.contains("$")) {
-                System.out.println("Introduce tu nombre: ");
-                String nombre = teclado.nextLine();
                 linea = linea.replaceFirst("\\$", nombre);
-
-                System.out.print("Introduce tu apellido: \n");
-                String apellido = teclado.nextLine();
                 linea = linea.replaceFirst("\\$", apellido);
-
-                System.out.print("Introduce nombre de tu Jefe: \n");
-                String jefe = teclado.nextLine();
-                linea = linea.replaceFirst("\\$", apellido);
-
-                System.out.print("Introduce el departamento: \n");
-                String dpto = teclado.nextLine();
-                linea = linea.replaceFirst("\\$", apellido);
+                linea = linea.replaceFirst("\\$", jefe);
+                linea = linea.replaceFirst("\\$", dpto);
             }
 
-            //Escribir la línea procesada en el nuevo archivo
+            // Escribir la línea procesada en el nuevo archivo
             escritor.write(linea);
             escritor.newLine(); // Saltar a la siguiente línea en el archivo de salida
-            break;
         }
-        
 
+        // Cerrar los flujos de lectura y escritura
         texto.close();
         escritor.close();
 
+        System.out.println("Archivo procesado correctamente. Salida en: " + archivoSalida);
+        
+        
+        
+        
     }
-
 }
