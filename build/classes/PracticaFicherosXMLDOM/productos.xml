@@ -1,0 +1,31 @@
+<Productos>
+    <producto id="10">
+        <nombre>TabureteArcade</nombre>
+        <diseño>StreetFighter</diseño>
+        <altura>63-84cm</altura>
+        <base>39cm</base>
+        <material>Cuero</material>
+        <peso>4,8kg</peso>
+    </producto>  
+    
+    <producto id="11">
+        <nombre>TabureteArcade</nombre>
+        <diseño>MarioBros</diseño>
+        <altura>63-84cm</altura>
+        <base>39cm</base>
+        <material>Cuero</material>
+        <peso>4,8kg</peso>
+    </producto>
+    
+    <producto id="12">
+        <nombre>TabureteArcade</nombre>
+        <diseño>CallOfDutty</diseño>
+        <altura>63-84cm</altura>
+        <base>39cm</base>
+        <material>Cuero</material>
+        <peso>4,8kg</peso>
+    </producto>
+</Productos>
+
+
+
