@@ -1,8 +1,10 @@
-package XMLDOM;
+package XMLDOMLECTURA;
 
+import XMLDOMESCRITURA.Empleado;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
+import java.util.ArrayList;
 import org.xml.sax.SAXException;
 
 /**
@@ -26,10 +28,16 @@ public class Principal {
         Element root = document.getDocumentElement();
         System.out.println(root.getNodeName());
 
+        
+        //creamos un arraylist para agregar a los empleados, proveniente de los nodos
+        ArrayList<Empleado> listaEmpleados = new ArrayList<Empleado>();
+        
         //a partir de aqui vamos a leer el documento
         NodeList nList = document.getElementsByTagName("empleado"); //trabajo sobre la nodeList
         System.out.println("===========================");
-
+        
+        
+ 
         for (int temp = 0; temp < nList.getLength(); temp++) {
             Node node = nList.item(temp);
             System.out.println("");

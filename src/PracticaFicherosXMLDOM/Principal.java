@@ -31,13 +31,14 @@ public class Principal {
 
         System.out.println("-.-");
 
-        for (int prod = 0; prod < nList.getLength(); prod++) {
+        for (int prod = 1; prod < nList.getLength(); prod++) {
             Node node = nList.item(prod);
-            System.out.println(";;");
+           
             System.out.println("REGISTRO "+prod);
-
+            System.out.println(";;");
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) node;
+                System.out.println(";;");
                 System.out.println("Producto id: " + eElement.getAttribute("id"));
                 System.out.println("Nombre: " + eElement.getElementsByTagName("nombre").item(0).getTextContent());
                 System.out.println("Diseño: " + eElement.getElementsByTagName("diseño").item(0).getTextContent());
