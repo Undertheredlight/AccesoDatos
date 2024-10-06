@@ -25,6 +25,15 @@
         <material>Cuero</material>
         <peso>4,8kg</peso>
     </producto>
+    
+    <producto id="13">
+        <nombre>TabureteArcade</nombre>
+        <diseño>Pepsiman</diseño>
+        <altura>63-84cm</altura>
+        <base>39cm</base>
+        <material>Cuero</material>
+        <peso>4,8kg</peso>
+    </producto>
 </Productos>
 
 

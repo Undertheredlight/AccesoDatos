@@ -29,12 +29,11 @@ public class ActualizarXML {
 
         //creamos la raiz del documento y añadimos atributos
         Element root = doc.createElement("empleados");
- 
         doc.appendChild(root);
 
         //creamos un nuevo modulo y lo añadimos al curso
         Element modulo = doc.createElement("empleado");
-        modulo.setAttribute("Id", "10"); //si quiero darle atributos al modulo 
+        modulo.setAttribute("Id", "10"); //puedo darle tantos atributos quiera
         root.appendChild(modulo);
 
         //Añadimos caracteristicas al modulo
@@ -56,6 +55,6 @@ public class ActualizarXML {
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(new FileOutputStream(nombreFichero + ".xml"));
         transformer.transform(source, result);
-        System.out.println("Datos actualizados en el archivo XML");
+        System.out.println("Datos actualizados en el archivo: "+nombreFichero+".xml");
     }
 }

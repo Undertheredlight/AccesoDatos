@@ -10,7 +10,7 @@ public class Principal {
     public static void main(String[] args) throws IOException {
 
         //fichero tipo file
-        File f = new File("fichero.txt");//Lo que hago es abrir el fichero con el que voy a trabajar. Previamente existe el txt en la carpeta donde trabajo
+        File f = new File("fichero.txt");//Lo que hago es abrir el fichero con el que voy a trabajar.Previamente existe el txt en la carpeta donde trabajo
         //buferedreader + filereader
         BufferedReader texto = new BufferedReader(new FileReader(f));
 
@@ -39,8 +39,8 @@ public class Principal {
         }
 
         lineasD = (double) caracteres / 95;
-        System.out.println("Cuantos espacios hay ?? " + lineasD);
-        int lineasFinal = (int) Math.ceil(lineasD); //El ceil lo que hace es redondear de 13 a 14
+        System.out.println("¿Cuantos espacios hay? " + lineasD);
+        int lineasFinal = (int) Math.ceil(lineasD); //El ceil lo que hace es redondear a lo alto de 13.3 a 14
         System.out.println("El total de caracteres en el texto es de: " + caracteres);
         System.out.println("El total de caracteres sin espacios son: " + caracteresSin);
         System.out.println("Numero parrafos: " + veces);

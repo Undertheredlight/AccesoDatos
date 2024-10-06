@@ -28,6 +28,7 @@ public class Escritura {
         try{
             configuracion.store(new FileOutputStream("config.pass"),
                     "fichero de configuracion");
+            
         }catch(FileNotFoundException fnfe){
             fnfe.printStackTrace();
         }catch(IOException ioe){

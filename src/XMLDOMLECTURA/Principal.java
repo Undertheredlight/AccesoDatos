@@ -19,7 +19,7 @@ public class Principal {
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         //creamos el objeto document con el archivo xml
-        Document document = builder.parse(new File("src\\XMLDOM\\empleados.xml")); //Empieza desde la raiz por lo que debo de indicar la ruta de donde se encuentre
+        Document document = builder.parse(new File("src\\XMLDOMLECTURA\\empleados.xml")); //Empieza desde la raiz por lo que debo de indicar la ruta de donde se encuentre
 
         //Validamos la estructura del documento. MUY IMPORTANTE
         document.getDocumentElement().normalize();
@@ -30,7 +30,7 @@ public class Principal {
 
         
         //creamos un arraylist para agregar a los empleados, proveniente de los nodos
-        ArrayList<Empleado> listaEmpleados = new ArrayList<Empleado>();
+        //<Empleado> listaEmpleados = new ArrayList<Empleado>();
         
         //a partir de aqui vamos a leer el documento
         NodeList nList = document.getElementsByTagName("empleado"); //trabajo sobre la nodeList
@@ -38,8 +38,8 @@ public class Principal {
         
         
  
-        for (int temp = 0; temp < nList.getLength(); temp++) {
-            Node node = nList.item(temp);
+        for (int emp = 0; emp < nList.getLength(); emp++) {
+            Node node = nList.item(emp);
             System.out.println("");
 
             if (node.getNodeType() == Node.ELEMENT_NODE) {

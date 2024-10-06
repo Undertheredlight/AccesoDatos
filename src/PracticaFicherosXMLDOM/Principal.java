@@ -20,7 +20,6 @@ public class Principal {
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-
         Document document = builder.parse(new File("src\\PracticaFicherosXMLDOM\\productos.xml"));
 
         Element root = document.getDocumentElement();
@@ -30,27 +29,27 @@ public class Principal {
         NodeList nList = document.getElementsByTagName("producto"); //trabajaré sobre la nodeList
 
         System.out.println("-.-");
-
-        for (int prod = 1; prod < nList.getLength(); prod++) {
+        int totalRegistros = nList.getLength(); //le asigno a la variable el numero total de registros
+        for (int prod = 0; prod < nList.getLength(); prod++) {
             Node node = nList.item(prod);
-           
-            System.out.println("REGISTRO "+prod);
-            System.out.println(";;");
+
+            System.out.println("REGISTRO " + (prod + 1));
+
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) node;
-                System.out.println(";;");
+
                 System.out.println("Producto id: " + eElement.getAttribute("id"));
                 System.out.println("Nombre: " + eElement.getElementsByTagName("nombre").item(0).getTextContent());
                 System.out.println("Diseño: " + eElement.getElementsByTagName("diseño").item(0).getTextContent());
                 System.out.println("Altura: " + eElement.getElementsByTagName("altura").item(0).getTextContent());
+                System.out.println("Base: " + eElement.getElementsByTagName("base").item(0).getTextContent());
                 System.out.println("Material: " + eElement.getElementsByTagName("material").item(0).getTextContent());
                 System.out.println("Peso: " + eElement.getElementsByTagName("peso").item(0).getTextContent());
-
+                //utilizo una condicion con el operador ternario
+                System.out.println(prod < totalRegistros - 1 ? ";;" : ";;;;");
             }
 
         }
-        System.out.println(";;;;");
-
     }
 
 }

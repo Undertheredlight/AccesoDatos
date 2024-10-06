@@ -37,11 +37,11 @@ public class Principal {
 
         //almacenamiento en un estructura de datos...
         //NodeList de una elemento que queramos
-        //en este caso son interesa <empleado></empleado>
+        //en este caso nos interesa <empleado></empleado>
         NodeList nList = document.getElementsByTagName("empleado");
         ArrayList<Empleado> arrayEmpleados = new ArrayList();
 
-        System.out.println("El numero de empleados recogidos son " + nList.getLength());
+        System.out.println("Número de empleados recogidos antes de agregar otro: " + nList.getLength());
 
         //Ahora trabajamos con NodeList, Node y Element
         //importamos todo de org.w3c.dom
@@ -57,21 +57,20 @@ public class Principal {
                     <nombre> Marc </nombre>
                     <apellido>Zuckerberg</apellido>
                     <ciudad>Florida</ciudad>
-                </empleado>
-                 */
-                 /* Salida de todos los elementos
+                </empleado>*/
+                /* Salida de todos los elementos
                     System.out.println(elemento.getAttribute("id"));
                     System.out.println(elemento.getElementsByTagName("nombre").item(0).getTextContent());
                  */
                 String id = elemento.getAttribute("id");
                 String nombre = elemento.getElementsByTagName("nombre").item(0).getTextContent();
-                String apellido = elemento.getElementsByTagName("apellido").item(0).getTextContent();
+                String apellido = elemento.getElementsByTagName("apellidos").item(0).getTextContent();
                 String ciudad = elemento.getElementsByTagName("ciudad").item(0).getTextContent();
                 arrayEmpleados.add(new Empleado(id, nombre, apellido, ciudad));
             }
         }
 
-        //Recogida de datos y creacion del objeto
+        //Recogida de datos y creacion del objeto nuevo
         Empleado empleadoNuevo = new Empleado("444", "Liz", "Contreras", "Madrid");
         arrayEmpleados.add(empleadoNuevo);
 
@@ -97,20 +96,19 @@ public class Principal {
             Element empleado = doc.createElement("empleado");
             empleado.setAttribute("id", e.getId());
             rootElement.appendChild(empleado);
-            //esto crea <empleado id=""><\empleado>
+            //esto crea <empleado id=""></empleado>
 
             Element nombre = doc.createElement("nombre");
             nombre.appendChild(doc.createTextNode(e.getNombre()));
             empleado.appendChild(nombre);
 
-            Element apellido = doc.createElement("apellido");
-            apellido.appendChild(doc.createTextNode(e.getApellido()));
-            apellido.appendChild(apellido);
+            Element apellidos = doc.createElement("apellidos");
+            apellidos.appendChild(doc.createTextNode(e.getApellido()));
+            empleado.appendChild(apellidos);
 
             Element ciudad = doc.createElement("ciudad");
             ciudad.appendChild(doc.createTextNode(e.getCiudad()));
-            ciudad.appendChild(apellido);
-
+            empleado.appendChild(ciudad);
         }
 
         //Escritura del fichero
@@ -120,7 +118,5 @@ public class Principal {
         StreamResult result = new StreamResult(new FileOutputStream(nombreFichero + ".xml"));
         transformer.transform(source, result);
         System.out.println("Datos incluidos en el fichero empleados2.xml");
-
     }
-
 }

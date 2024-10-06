@@ -19,14 +19,7 @@ public class Principal {
             System.out.println("El directorio existe");
         }else{
             System.out.println("No existe el directorio");
-        }
-        
-          if (!(f.exists())){
-            System.out.println("El directorio existe");
-        }else{
-            System.out.println("No existe el directorio");
-        }
-          
+        } 
         
     }
 }
