@@ -78,6 +78,7 @@ public class Principal {
             System.out.println(e.toString());
         }
 
+        //2º PARTE. CREACIÓN DE OTRO TXT CON LA INFORMACIÓN ANTIGUA MÁS NUEVOS REGISTROS
         //Creacion del xml con Transformer en otro fichero, respetamos el anterior
         String nombreFichero = "empleados2";
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newDefaultInstance();
