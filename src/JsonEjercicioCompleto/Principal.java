@@ -1,8 +1,10 @@
 
 package JsonEjercicioCompleto;
 
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 /**
  *
@@ -10,7 +12,7 @@ import org.json.JSONObject;
  */
 public class Principal {
     public static void main(String[] args) {
-         try {
+        try {
             //Leer el contenido desde un archivo JSON
             String contenido = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get("starwars.json")));
             JSONObject jsonLeido = new JSONObject(contenido);
@@ -37,7 +39,7 @@ public class Principal {
 
                 //Agrego el ArrayList
                 proyectoLeido.agregarPeliculas(filLeido);
-                
+
                 
             }
 
