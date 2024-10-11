@@ -52,10 +52,10 @@ public class Main {
         while ((linea = texto.readLine()) != null) {
             // Reemplazar los placeholders en la línea actual
             if (linea.contains("$")) {
-                linea = linea.replaceFirst("\\$", nombre);
-                linea = linea.replaceFirst("\\$", apellido);
-                linea = linea.replaceFirst("\\$", jefe);
-                linea = linea.replaceFirst("\\$", dpto);
+                linea = linea.replaceFirst("$nombre", nombre);
+                linea = linea.replaceFirst("$apellido", apellido);
+                linea = linea.replaceFirst("$jefe", jefe);
+                linea = linea.replaceFirst("$departamento", dpto);
             }
 
             // Escribir la línea procesada en el nuevo archivo

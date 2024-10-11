@@ -6,7 +6,7 @@ package JsonEjercicioCompleto;
  * @author Liz
  */
 public class Especies {
-    private String nombre;
+    private String name;
     private String clasificacion;
     private String designacion;
     private int altura;
@@ -15,8 +15,8 @@ public class Especies {
     private int average_lifespan;
     private String lenguaje;
 
-    public Especies(String nombre, String clasificacion, String designacion, int altura, String colorpiel, String colorpelo, int average_lifespan, String lenguaje) {
-        this.nombre = nombre;
+    public Especies(String name, String clasificacion, String designacion, int altura, String colorpiel, String colorpelo, int average_lifespan, String lenguaje) {
+        this.name = name;
         this.clasificacion = clasificacion;
         this.designacion = designacion;
         this.altura = altura;
@@ -27,7 +27,7 @@ public class Especies {
     }
 
     public String getNombre() {
-        return nombre;
+        return name;
     }
 
     public String getClasificacion() {
@@ -59,7 +59,7 @@ public class Especies {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.name = nombre;
     }
 
     public void setClasificacion(String clasificacion) {
