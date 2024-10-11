@@ -20,15 +20,18 @@ public class PersonajeAvanzado {
         this.especies = especies;
     }
 
-    public PersonajeAvanzado() {
-    }
-
     public PersonajeAvanzado(String nombre) {
         this.nombre = nombre;
+        this.peliculas = new ArrayList<>();
+        this.especies = new ArrayList<>();
     }
-    
-    
 
+       public PersonajeAvanzado() {
+        this.peliculas = new ArrayList<>();
+        this.especies = new ArrayList<>();
+    }
+
+    
     public String getNombre() {
         return nombre;
     }
