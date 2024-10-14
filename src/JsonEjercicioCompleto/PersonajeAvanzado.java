@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * @author Liz
  */
 public class PersonajeAvanzado {
-        private String nombre;
+
+    private String nombre;
     private int height;
     //tengo que meterle el array de peliculas y el de especies para poder trabajar con el 
     private ArrayList<Peliculas> peliculas;
@@ -26,12 +27,11 @@ public class PersonajeAvanzado {
         this.especies = new ArrayList<>();
     }
 
-       public PersonajeAvanzado() {
+    public PersonajeAvanzado() {
         this.peliculas = new ArrayList<>();
         this.especies = new ArrayList<>();
     }
 
-    
     public String getNombre() {
         return nombre;
     }
@@ -64,13 +64,12 @@ public class PersonajeAvanzado {
         this.especies = especies;
     }
 
-   //estos métodos delegados añade peliculas al arraylist
-
+    //estos métodos delegados añade peliculas al arraylist
     public boolean agregarEspecies(Especies e) {
         return especies.add(e);
     }
-    
-   public boolean agregarPeliculas(Peliculas e) {
+
+    public boolean agregarPeliculas(Peliculas e) {
         return peliculas.add(e);
     }
 }

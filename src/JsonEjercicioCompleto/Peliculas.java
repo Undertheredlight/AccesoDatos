@@ -5,6 +5,7 @@ package JsonEjercicioCompleto;
  * @author Liz
  */
 public class Peliculas {
+
     private String tittle;
     private int episodio;
     private String opening_crawl;

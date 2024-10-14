@@ -1,11 +1,11 @@
 package JsonEjercicioCompleto;
 
-
 /**
  *
  * @author Liz
  */
 public class Especies {
+
     private String name;
     private String clasificacion;
     private String designacion;

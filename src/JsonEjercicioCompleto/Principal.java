@@ -1,8 +1,5 @@
 package JsonEjercicioCompleto;
 
-import JsonEjercicioCompleto.Especies;
-import JsonEjercicioCompleto.Peliculas;
-import JsonEjercicioCompleto.PersonajeAvanzado;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.nio.file.Files;
@@ -18,13 +15,10 @@ public class Principal {
 
     public static void main(String[] args) {
         try {
-
             //Leer el contenido desde un archivo JSON
-            String contenido = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get("starwars.json")));
+            String contenido = new String(Files.readAllBytes(Paths.get("starwars.json")));
 
-            //Leer el contenido del archivo JSON
-            String leer = new String(Files.readAllBytes(Paths.get("starwars.json")));
-
+            //Crea un objeto JSONObject a partir de una cadena de texto que representa un objeto JSON.
             JSONObject jsonLeido = new JSONObject(contenido);
 
             //Recuperar datos del proyecto
@@ -32,24 +26,23 @@ public class Principal {
             int heightProyecto = jsonLeido.getInt("height");
             JSONArray jsonPeliculasLeidas = jsonLeido.getJSONArray("films");
             JSONArray jsonEspecieLeidas = jsonLeido.getJSONArray("species");
-            
+
             //Objeto con los datos leídos
             PersonajeAvanzado proyectoLeido = new PersonajeAvanzado(nombreProyecto);
             proyectoLeido.setHeight(heightProyecto);
 
-            //procesamos peliculas recorriendolas
+            //Procesamos películas recorriéndolas
             for (int i = 0; i < jsonPeliculasLeidas.length(); i++) {
-                JSONObject jsonStarwars = jsonPeliculasLeidas.getJSONObject(i);
-                String tituloPelicula = jsonStarwars.getString("title");
-                int episodioId = jsonStarwars.getInt("episode_id");
-                String opening_crawl = jsonStarwars.getString("opening_crawl");
-                String director = jsonStarwars.getString("director");
+                JSONObject jsonPelicula = jsonPeliculasLeidas.getJSONObject(i);
+                String tituloPelicula = jsonPelicula.getString("title");
+                int episodioId = jsonPelicula.getInt("episode_id");
+                String openingCrawl = jsonPelicula.getString("opening_crawl");
+                String director = jsonPelicula.getString("director");
+                
+                Peliculas peliculaLeida = new Peliculas(tituloPelicula, episodioId, openingCrawl, director);
 
-                Peliculas filLeido = new Peliculas(tituloPelicula, episodioId, opening_crawl, director);
-
-                //agrego las peliculas al proyecto
-                proyectoLeido.agregarPeliculas(filLeido);
-
+                //Agrego las películas al proyecto
+                proyectoLeido.agregarPeliculas(peliculaLeida);
             }
 
             //Imprimo el proyecto
@@ -57,44 +50,43 @@ public class Principal {
             System.out.println("height: " + proyectoLeido.getHeight());
             System.out.println("films:");
 
-            //Imprimo peliculas
+            //Imprimo películas
             for (Peliculas pelicula : proyectoLeido.getPeliculas()) {
                 System.out.println("Title: " + pelicula.getTittle()
                         + ",\n Episode_id: " + pelicula.getEpisodio()
-                        + ",\n Director: " + pelicula.getDirector());
+                        +",\n Opening_crawl:" + pelicula.getOpening_crawl()
+                        + ",\n Director: " + pelicula.getDirector()+"\n");
             }
 
-            //procesamos especies recorriendo
+            //Procesamos especies recorriendo
             for (int i = 0; i < jsonEspecieLeidas.length(); i++) {
-                JSONObject jsonStarwars = jsonEspecieLeidas.getJSONObject(i);
-                String nombreespecie = jsonStarwars.getString("name");
-                String classification = jsonStarwars.getString("classification");
-                String designation = jsonStarwars.getString("designation");
-                int average_height = jsonStarwars.getInt("average_height");
-                String skin_colors = jsonStarwars.getString("skin_colors");
-                String hair_colors = jsonStarwars.getString("hair_colors");
-                int average_lifespan = jsonStarwars.getInt("average_lifespan");
-                String language = jsonStarwars.getString("language");
+                JSONObject jsonEspecie = jsonEspecieLeidas.getJSONObject(i);
+                String nombreEspecie = jsonEspecie.getString("name");
+                String classification = jsonEspecie.getString("classification");
+                String designation = jsonEspecie.getString("designation");
+                int averageHeight = jsonEspecie.getInt("average_height");
+                String skinColors = jsonEspecie.getString("skin_colors");
+                String hairColors = jsonEspecie.getString("hair_colors");
+                int averageLifespan = jsonEspecie.getInt("average_lifespan");
+                String language = jsonEspecie.getString("language");
 
-                Especies filLeido = new Especies(nombreespecie, classification, designation, i, contenido, contenido, average_lifespan, language);
+                Especies especieLeida = new Especies(nombreEspecie, classification, designation, averageHeight, skinColors, hairColors, averageLifespan, language);
 
-                //agrego las especies al proyecto
-                proyectoLeido.agregarEspecies(filLeido);
+                //Agrego las especies al proyecto
+                proyectoLeido.agregarEspecies(especieLeida);
             }
 
             //Imprimo especies
             System.out.println("species: ");
-
             for (Especies especie : proyectoLeido.getEspecies()) {
-                System.out.println("name " + especie.getNombre()
-                        + " classification: " + especie.getClasificacion()
-                        + " designation : " + especie.getDesignacion()
-                        + "average_height: " + especie.getAverage_lifespan()
-                        + "skin_colors: " + especie.getColorpiel()
-                        + " hair_colors: " + especie.getColorpelo()
-                        + " average_lifespan: " + especie.getAverage_lifespan()
-                        + " language: " + especie.getLenguaje()
-                );
+                System.out.println("name: " + especie.getNombre()
+                        + ",\n classification: " + especie.getClasificacion()
+                        + ",\n designation: " + especie.getDesignacion()
+                        + ",\n average_height: " + especie.getAltura()
+                        + ",\n skin_colors: " + especie.getColorpiel()
+                        + ",\n hair_colors: " + especie.getColorpelo()
+                        + ",\n average_lifespan: " + especie.getAverage_lifespan()
+                        + ",\n language: " + especie.getLenguaje());
             }
 
         } catch (IOException e) {
