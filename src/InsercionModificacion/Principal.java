@@ -26,6 +26,7 @@ import org.xml.sax.SAXException;
 public class Principal {
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerConfigurationException, TransformerException {
+        
         //No se toca, es el parseo del DOM de empleados.xml
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -41,7 +42,7 @@ public class Principal {
         NodeList nList = document.getElementsByTagName("empleado");
         ArrayList<Empleado> arrayEmpleados = new ArrayList();
 
-        System.out.println("Número de empleados recogidos antes de agregar otro: " + nList.getLength());
+        System.out.println("Numero de empleados recogidos antes de agregar otro: " + nList.getLength());
 
         //Ahora trabajamos con NodeList, Node y Element
         //importamos todo de org.w3c.dom

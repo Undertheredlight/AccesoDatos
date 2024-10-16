@@ -48,6 +48,26 @@ public class ActualizarXML {
         Element ciudadModulo = doc.createElement("ciudad");
         ciudadModulo.appendChild(doc.createTextNode("Florida"));
         modulo.appendChild(ciudadModulo);
+        
+        //CREAMOS OTRO EMPLEADO
+        
+        Element modulo2 = doc.createElement("empleado");
+        modulo2.setAttribute("Id", "11");
+        root.appendChild(modulo2);
+        //Añadimos caracteristicas al modulo
+        Element nombreModulo2 = doc.createElement("nombre");
+        nombreModulo2.appendChild(doc.createTextNode("Liz"));
+        modulo2.appendChild(nombreModulo2);
+
+        Element apellidoModulo2 = doc.createElement("apellido");
+        apellidoModulo2.appendChild(doc.createTextNode("Contreras"));
+        modulo2.appendChild(apellidoModulo2);
+
+        Element ciudadModulo2 = doc.createElement("ciudad");
+        ciudadModulo2.appendChild(doc.createTextNode("Caracas"));
+        modulo2.appendChild(ciudadModulo2);
+        
+        
 
         //Transformamos y escribimos los cambios en el archivo XML
         TransformerFactory transformerFactory = TransformerFactory.newDefaultInstance();
@@ -55,6 +75,6 @@ public class ActualizarXML {
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(new FileOutputStream(nombreFichero + ".xml"));
         transformer.transform(source, result);
-        System.out.println("Datos actualizados en el archivo: "+nombreFichero+".xml");
+        System.out.println("Datos introducidos en el archivo: "+nombreFichero+".xml");
     }
 }

@@ -38,7 +38,7 @@ public class Principal {
                 int episodioId = jsonPelicula.getInt("episode_id");
                 String openingCrawl = jsonPelicula.getString("opening_crawl");
                 String director = jsonPelicula.getString("director");
-                
+
                 Peliculas peliculaLeida = new Peliculas(tituloPelicula, episodioId, openingCrawl, director);
 
                 //Agrego las películas al proyecto
@@ -54,8 +54,8 @@ public class Principal {
             for (Peliculas pelicula : proyectoLeido.getPeliculas()) {
                 System.out.println("Title: " + pelicula.getTittle()
                         + ",\n Episode_id: " + pelicula.getEpisodio()
-                        +",\n Opening_crawl:" + pelicula.getOpening_crawl()
-                        + ",\n Director: " + pelicula.getDirector()+"\n");
+                        + ",\n Opening_crawl:" + pelicula.getOpening_crawl()
+                        + ",\n Director: " + pelicula.getDirector() + "\n");
             }
 
             //Procesamos especies recorriendo
